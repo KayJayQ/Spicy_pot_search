@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>{{result['word']}} --Spicy Pot Search</title>
+    <link rel="stylesheet" href="../static/search/result.css" />
+    <script type="text/javascript" src="../static/search/result.js"></script>
+</head>
+<body onload=onload({{result['pages']}},{{result['currentPage']}})>
+    <div class="container">
+        <div class="logoContainer"></div>
+        <textarea id ="textfield", class="inputContainer" rows="1" cols="100">
+ 
+        </textarea>
+        <div class="search" onclick="search()">Search</div>
+
+        <div class="divider"></div>
+
+        <div class="empty" id="404" hidden="true">Result Not Found</div>
+
+        {% for url,title,text,index in result['res'] %}
+        <div class="url"><a  href="http://{{url}}">{{title}}</a></div>
+        <div class="url">
+        {{text}}
+        <a href="/cache?p={{index//500}}&c={{index%500}}">Cache</a>
+        </div>
+        {% endfor %}
+
+        <div class="pages">
+            {% for i in range(1,result['pages']+1) %}
+            <a href="/search?s={{result['word']}}&p={{i}}">{{i}}</a>
+            {% endfor %}
+        </div>
+    </div>
+    <textarea id="temp" hidden="true">{{result['word']}}</textarea>
+</body>
+</html>
