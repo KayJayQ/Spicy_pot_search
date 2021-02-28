@@ -1,6 +1,12 @@
 # Spicy_pot_search
 A search engine designed for UCI websites
 
+server: the back-end files deployed on server. Including webserver and search algorithm
+
+db_generator: generator scripts for creating index-posting database
+
+crawler and web pages are not shown because of size.
+
 # Work Flow
 User Input Query
 
@@ -11,6 +17,7 @@ Multiple Search by NLP Synonyms Extension
 Tokenize
 
 CASE:
+
 	One Word Query:
 	
 	Go over the 1-word index to create fast rank
@@ -71,5 +78,5 @@ CASE:
 		First-Page 10 Links --- T,A:4; T:3; A:2; N:1;
 		Rest Pages: Listing By rancking class and cosine score/position score
 
-Return Empty or Results List to Front End
-Send to GUI
+	Return Empty or Results List to Front End
+	Send to GUI
